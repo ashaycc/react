@@ -1,0 +1,13 @@
+nav ul {
+display: flex;
+flex-wrap: wrap;
+}
+nav ul li{
+list-style: none;
+margin: 0 5px;
+text-decoration: none;
+}
+nav ul li a{
+text-decoration: none;
+color: black;
+}
