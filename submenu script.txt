@@ -1,0 +1,114 @@
+jQuery(document).ready(function () {
+    let dropDownSpan = jQuery('<span class="dropDown"></span>');
+    jQuery(".menu-item-has-children > a").after(dropDownSpan);
+});
+jQuery(document).ready(function($) {
+    $('.dropDown').click(function() {
+        $(this).siblings('.sub-menu').toggle();
+	$(this).toggleClass('clicked');
+    });
+});
+
+
+/*submenu*/
+ul.sub-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    top: 20px;
+    left: -30px;
+    min-width: 250px;
+    background-color: black;
+    padding: 5px 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+.menu-item-has-children:hover ul.sub-menu{
+    opacity:1;
+    pointer-events:all;
+}
+ul.sub-menu:hover{
+        opacity:1;
+    pointer-events:all;
+}
+ul.sub-menu li {
+    margin: 0 !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+ul.sub-menu li a {
+    color: white;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+}
+
+.menu-item-has-children{
+    position:relative;
+    display:flex;
+    gap:5px;
+    align-items:center;
+}
+span.dropDown {
+    content:""; 
+    width: 12px;
+    display: block; 
+    height: 10px;
+    content: "";
+   background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="9.938" height="6.29" viewBox="0 0 9.938 6.29"%3E%3Cpath id="Path_40972" data-name="Path 40972" d="M2217.2,1629.253l3.877,3.572-3.877,3.541" transform="translate(1637.778 -2215.786) rotate(90)" fill="none" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/%3E%3C/svg%3E') center/cover no-repeat;
+    transition: .5s ease-in-out;
+}
+
+.menu-item-has-children:hover span.dropDown {
+    transform: rotate(180deg); /* Apply rotation to the ::after pseudo-element */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for the rotation */
+}
+
+
+
+responsive-----
+	ul.sub-menu {
+		display: none;
+		position: inherit;
+		opacity: 1;
+		color: black;
+		width: 100%;
+		top:0;
+		left:0;
+		height: fit-content;
+		visibility: visible;
+		pointer-events: all;
+		z-index: 999999;
+		transform: unset;
+	}
+	ul.sub-menu li{
+		margin:0;
+	}
+	span.dropDown.clicked {
+		rotate: 180deg;
+	}
+	span.dropDown{
+		margin-right: 20px;
+	}
+	.ph-nav ul li a {
+		width: max-content;
+	}
+	.menu-item-has-children {
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	ul.sub-menu li:last-child a {
+		border-bottom: none;
+	}
+	ul.sub-menu li a {
+		width:100%;
+		border-bottom:1px solid white;
+	}
+	.menu-item-has-children:hover span.dropDown {
+		transform: none;
+		transition: none; 
+	}
