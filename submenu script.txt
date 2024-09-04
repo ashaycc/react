@@ -112,3 +112,15 @@ responsive-----
 		transform: none;
 		transition: none; 
 	}
+
+
+
+-----------
+
+    .product-page .grid-container {
+        --auto-grid-min-size: 15rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,
+                minmax(var(--auto-grid-min-size), 1fr));
+        gap: 90px 28px;
+    }
